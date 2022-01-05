@@ -15,12 +15,9 @@ class Solution:
         t = head
         r = head
 
-        while r.next and r.next.next:
+        while r and r.next:
             t = t.next
             r = r.next.next
-
-        if r.next:
-            t = t.next
 
         return t
 
