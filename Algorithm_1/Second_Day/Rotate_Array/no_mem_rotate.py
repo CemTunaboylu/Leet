@@ -1,20 +1,24 @@
-# Given an array, rotate the array to the right by k steps, where k is non-negative.
+# rotate the list to the right by k
+def rotate(nums, k):
+	k %= len(nums)
+	if len(nums) == 1 or k == 0:
+		return
+	reverse(nums, 0, len(nums)-1)	
+	reverse(nums, 0, k-1)
+	reverse(nums, k, len(nums)-1)
 
-from typing import List 
-class Solution:
-	def rotate(self, nums: List[int], k: int) -> None:
-		l = len(nums)
-		if k == l or k == 0:
-			return 
-		k %= l
-		nums.extend(nums[ :l-k ])
-		del nums[ : l-k]
+def reverse(l, s, e):
+	while s < e:
+		t = l[s]
+		l[s] = l[e]
+		l[e] = t
+		s += 1
+		e -= 1
 
 def test(nums, k):
-	s = Solution()
-	s.rotate(nums, k)
-
+	rotate(nums, k)
 	print(nums)
+
 if __name__ == "__main__":
 	nums, k = [1,2,3,4,5,6,7],  3 
 	test(nums,k)
