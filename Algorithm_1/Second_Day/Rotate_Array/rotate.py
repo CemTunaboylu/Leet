@@ -10,6 +10,10 @@ class Solution:
 		nums.extend(nums[ :l-k ])
 		del nums[ : l-k]
 
+def rot(a, k):
+	a[:k],a[k+1:] = a[-k:], a[:k]
+	print(a)
+	
 def test(nums, k):
 	s = Solution()
 	s.rotate(nums, k)

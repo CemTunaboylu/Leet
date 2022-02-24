@@ -42,5 +42,5 @@ def pop(d, v):
 if __name__ == "__main__":
         s = Solution()
         a = s.findAnagrams("cbaebabacd", "abc")
-        print(a)
+        assert [0,6] == a
         
